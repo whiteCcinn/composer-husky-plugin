@@ -1,0 +1,39 @@
+{
+  "name": "ccinn/composer-husky-plugin",
+  "type": "composer-plugin",
+  "description": "Husky-php composer plugin",
+  "keywords": [
+    "husky-php",
+    "composer-plugin",
+    "composer-husky-plugin"
+  ],
+  "authors": [
+    {
+      "name": "caiwenhui",
+      "email": "471113744@qq.com",
+      "homepage": "https://github.com/whiteCcinn",
+      "role": "Developer"
+    }
+  ],
+  "extra": {
+    "class": "Husky\\Plugins\\HuskyPlugin"
+  },
+  "require": {
+    "ext-json": "*",
+    "composer-plugin-api": "^1.1"
+  },
+  "require-dev": {
+    "composer/composer": "^1.6.5 || ^1.7.0 || ^1.8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Husky\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packagist.laravel-china.org"
+    }
+  ]
+}
