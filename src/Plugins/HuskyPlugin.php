@@ -108,9 +108,7 @@ class HuskyPlugin implements PluginInterface, EventSubscriberInterface, Capable
      */
     public function onPostPackageInstall(PackageEvent $event)
     {
-        /** @var GenericRule $genericRule */
-        $genericRule = $event->getOperation()->getReason();
-        $packageName = $genericRule->getJob()['packageName'];
+        $packageName = $event->getOperation()->getPackage()->getName();
 
         if (strpos($packageName, self::HUSKY) === false) {
             return false;
@@ -159,5 +157,21 @@ class HuskyPlugin implements PluginInterface, EventSubscriberInterface, Capable
         return [
             CommandProvider::class => \Husky\Plugins\CommandProvider::class
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+        // Nothing to deactivate.
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+        // Nothing to uninstall.
     }
 }
